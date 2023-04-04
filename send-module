@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 MODULE_NAME=`echo $1 | sed 's/\///g'`
-BASE_BRANCH=`git branch --show-current | sed -e 's/\([0-9]\.[0-9]\).*/\1/g'`
+BOT_TOKEN=$2
 DATE=`date +%Y-%m-%d`
 PACKAGE_NAME="${MODULE_NAME}_${DATE}"
 EXCLUDES=`cat $MODULE_NAME/.gitignore | sed -e "s!^!--exclude=$MODULE_NAME/!" | tr '\n' ' '`
