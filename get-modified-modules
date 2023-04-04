@@ -1,5 +1,3 @@
 #!/usr/bin/env sh
-BASE_BRANCH=`git branch --show-current | sed -e 's/\([0-9]\.[0-9]\).*/\1/g'`
-git branch --show-current
-echo $BASE_BRANCH
+BASE_BRANCH=`$1 | sed -e 's/\([0-9]\.[0-9]\).*/\1/g'`
 git diff --name-only origin/$BASE_BRANCH | awk -F / '{ print $1 }' | sort | uniq | grep -v "^setup$"
